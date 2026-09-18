@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import "./AuthPage.css"
@@ -7,6 +7,39 @@ import "./AuthPage.css"
 function RegisterBikePage() {
 
     const navigate = useNavigate()
+
+    useEffect(() => {
+
+    const checkBike = async () => {
+
+        const accessToken = localStorage.getItem("access")
+
+        try {
+
+            const response = await axios.get(
+                "https://moto-check-backend.onrender.com/api/bikes/",
+                {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                    }
+                }
+            )
+
+            if (response.data.length > 0) {
+                navigate("/my-bike")
+            }
+
+        } catch (error) {
+
+            console.log("Bike check error:", error)
+
+        }
+
+    }
+
+    checkBike()
+
+}, [navigate])
 
     const [bikeImage, setBikeImage] = useState(null)
     const [bikeModel, setBikeModel] = useState("")
