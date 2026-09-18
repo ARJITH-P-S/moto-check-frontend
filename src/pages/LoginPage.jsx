@@ -20,7 +20,7 @@ function LoginPage() {
         try {
 
             const response = await axios.post(
-                "http://moto-check-backend.onrender.com/api/token/",
+                "https://moto-check-backend.onrender.com/api/token/",
                 {
                     username: username,
                     password: password

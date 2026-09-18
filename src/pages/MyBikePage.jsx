@@ -13,7 +13,7 @@ function MyBikePage() {
         const accessToken = localStorage.getItem("access")
 
         axios.get(
-            "http://moto-check-backend.onrender.com/api/bikes/",
+            "https://moto-check-backend.onrender.com/api/bikes/",
             {
                 headers: {
                     Authorization: `Bearer ${accessToken}`

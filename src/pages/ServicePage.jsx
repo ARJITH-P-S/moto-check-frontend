@@ -18,7 +18,7 @@ function ServicePage() {
         try {
 
             const response = await axios.get(
-                "http://moto-check-backend.onrender.com/api/bikes/",
+                "https://moto-check-backend.onrender.com/api/bikes/",
                 {
                     headers: {
                         Authorization: `Bearer ${accessToken}`
@@ -62,7 +62,7 @@ function ServicePage() {
         try {
 
             await axios.post(
-                `http://moto-check-backend.onrender.com/api/bikes/${bike.id}/complete-service/`,
+                `https://moto-check-backend.onrender.com/api/bikes/${bike.id}/complete-service/`,
                 {},
                 {
                     headers: {

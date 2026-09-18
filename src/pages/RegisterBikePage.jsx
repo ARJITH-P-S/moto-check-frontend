@@ -44,7 +44,7 @@ function RegisterBikePage() {
         try {
 
             await axios.post(
-                "http://moto-check-backend.onrender.com/api/bikes/",
+                "https://moto-check-backend.onrender.com/api/bikes/",
                 formData,
                 {
                     headers: {

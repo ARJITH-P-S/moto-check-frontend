@@ -28,7 +28,7 @@ function EditBikePage() {
         const accessToken = localStorage.getItem("access")
 
         axios.get(
-            "http://moto-check-backend.onrender.com/api/bikes/",
+            "https://moto-check-backend.onrender.com/api/bikes/",
             {
                 headers: {
                     Authorization: `Bearer ${accessToken}`
@@ -94,7 +94,7 @@ function EditBikePage() {
         try {
 
             await axios.patch(
-                `http://moto-check-backend.onrender.com/api/bikes/${bikeId}/`,
+                `https://moto-check-backend.onrender.com/api/bikes/${bikeId}/`,
                 formData,
                 {
                     headers: {

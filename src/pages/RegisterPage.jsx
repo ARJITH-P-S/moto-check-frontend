@@ -37,7 +37,7 @@ function RegisterPage() {
             // Create user account
 
             await axios.post(
-                "http://moto-check-backend.onrender.com/api/accounts/register/",
+                "https://moto-check-backend.onrender.com/api/accounts/register/",
                 {
                     username: username,
                     email: email,
