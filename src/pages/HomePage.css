@@ -1,0 +1,438 @@
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+.home-page {
+    position: relative;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+    color: #e8e9f5;
+}
+
+/* ============================================================
+   Full-page Space Background
+   Fixed behind everything, spans the full screen top to bottom
+   and stays put while the page content scrolls over it.
+   ============================================================ */
+
+.space-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 0%, #1b1f3b 0%, #0b0e23 55%, #05060f 100%);
+}
+
+/* --- Starfield --- */
+
+.starfield {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1.5px 1.5px at 8% 12%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 18% 28%, #fff, transparent),
+        radial-gradient(1px 1px at 27% 6%, #cdd6ff, transparent),
+        radial-gradient(2px 2px at 35% 40%, #fff, transparent),
+        radial-gradient(1px 1px at 44% 18%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 52% 33%, #cdd6ff, transparent),
+        radial-gradient(1px 1px at 60% 8%, #fff, transparent),
+        radial-gradient(2px 2px at 68% 22%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 74% 45%, #fff, transparent),
+        radial-gradient(1px 1px at 81% 15%, #cdd6ff, transparent),
+        radial-gradient(1.5px 1.5px at 88% 38%, #fff, transparent),
+        radial-gradient(1px 1px at 94% 10%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 4% 55%, #fff, transparent),
+        radial-gradient(1px 1px at 15% 62%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 23% 70%, #cdd6ff, transparent),
+        radial-gradient(2px 2px at 31% 58%, #fff, transparent),
+        radial-gradient(1px 1px at 40% 66%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 48% 78%, #fff, transparent),
+        radial-gradient(1px 1px at 56% 60%, #cdd6ff, transparent),
+        radial-gradient(2px 2px at 64% 72%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 72% 65%, #fff, transparent),
+        radial-gradient(1px 1px at 80% 80%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 89% 58%, #cdd6ff, transparent),
+        radial-gradient(1px 1px at 96% 74%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 10% 90%, #fff, transparent),
+        radial-gradient(1px 1px at 30% 95%, #fff, transparent),
+        radial-gradient(2px 2px at 50% 92%, #cdd6ff, transparent),
+        radial-gradient(1px 1px at 70% 96%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 90% 90%, #fff, transparent);
+    background-repeat: repeat;
+    animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: 0.55; }
+    to   { opacity: 1; }
+}
+
+/* --- Planets --- */
+
+.planet {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.planet-1 {
+    top: 8%;
+    left: 8%;
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(circle at 32% 32%, #ffb37a, #d1602f 70%);
+    box-shadow: 0 0 24px rgba(209, 96, 47, 0.45);
+    animation: drift-1 9s ease-in-out infinite;
+}
+
+.planet-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 130px;
+    height: 34px;
+    transform: translate(-50%, -50%) rotate(-18deg);
+    border: 3px solid rgba(255, 214, 170, 0.55);
+    border-radius: 50%;
+}
+
+.planet-2 {
+    top: 34%;
+    right: 10%;
+    width: 46px;
+    height: 46px;
+    background: radial-gradient(circle at 35% 30%, #9ad8ff, #3a7bd5 75%);
+    box-shadow: 0 0 18px rgba(58, 123, 213, 0.5);
+    animation: drift-2 7s ease-in-out infinite;
+}
+
+.planet-3 {
+    top: 62%;
+    left: 15%;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle at 35% 30%, #d8b6ff, #8a4fd6 75%);
+    box-shadow: 0 0 12px rgba(138, 79, 214, 0.55);
+    animation: drift-1 11s ease-in-out infinite reverse;
+}
+
+.planet-4 {
+    top: 82%;
+    right: 18%;
+    width: 34px;
+    height: 34px;
+    background: radial-gradient(circle at 35% 30%, #9dffc9, #2fa96b 75%);
+    box-shadow: 0 0 16px rgba(47, 169, 107, 0.45);
+    animation: drift-2 10s ease-in-out infinite;
+}
+
+.moon {
+    position: absolute;
+    top: 48%;
+    right: 30%;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #ffffff, #c6c6d6 75%);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    animation: drift-2 8s ease-in-out infinite reverse;
+}
+
+@keyframes drift-1 {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+}
+
+@keyframes drift-2 {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(8px); }
+}
+
+/* --- Shooting stars: staggered durations/delays so they never feel synced --- */
+
+.shooting-star {
+    position: absolute;
+    width: 90px;
+    height: 2px;
+    background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0));
+    border-radius: 2px;
+    opacity: 0;
+    animation-name: shoot;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.star-1 { top: 12%; left: 75%; animation-duration: 5s;   animation-delay: 0.5s; }
+.star-2 { top: 45%; left: 88%; animation-duration: 7.5s; animation-delay: 3s;   }
+.star-3 { top: 25%; left: 40%; animation-duration: 6.5s; animation-delay: 5.2s; }
+.star-4 { top: 70%; left: 60%; animation-duration: 9s;   animation-delay: 1.8s; }
+
+@keyframes shoot {
+    0%   { opacity: 0; transform: rotate(200deg) translateX(0); }
+    3%   { opacity: 1; }
+    16%  { opacity: 0; transform: rotate(200deg) translateX(-260px); }
+    100% { opacity: 0; }
+}
+
+/* --- Star-dust section divider --- */
+
+.stardust-divider {
+    position: relative;
+    z-index: 1;
+    height: 10px;
+    background: linear-gradient(90deg, transparent, #7c6df0 20%, #22d3ee 50%, #7c6df0 80%, transparent);
+    opacity: 0.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .starfield, .planet, .moon, .shooting-star {
+        animation: none;
+        opacity: 1;
+    }
+}
+
+@media (max-width: 700px) {
+    .planet-1 { width: 46px; height: 46px; }
+    .planet-ring { width: 84px; height: 22px; }
+    .planet-2 { width: 34px; height: 34px; }
+    .planet-4 { width: 24px; height: 24px; }
+}
+
+/* ============================================================
+   Nav Bar
+   Fixed at the top, sits above the space background, with the
+   brand on the left and logout in the top-right corner.
+   ============================================================ */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 28px;
+    background: transparent;
+    border: none;
+}
+
+.navbar-brand {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 0 0 16px rgba(124, 109, 240, 0.4);
+}
+
+.navbar .logout-btn {
+    padding: 9px 22px;
+    font-size: 14px;
+    font-weight: 600;
+    background: transparent;
+    color: #e8e9f5;
+    border: 2px solid rgba(232, 233, 245, 0.5);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s ease, filter 0.15s ease;
+}
+
+.navbar .logout-btn:hover {
+    background: rgba(232, 233, 245, 0.1);
+}
+
+@media (max-width: 500px) {
+    .navbar {
+        padding: 12px 18px;
+    }
+    .navbar-brand {
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+    .navbar .logout-btn {
+        padding: 7px 16px;
+        font-size: 13px;
+    }
+}
+
+/* ============================================================
+   Hero
+   Sits directly on top of the space background - transparent,
+   not a boxed panel below/outside the theme.
+   ============================================================ */
+
+.hero-section {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 140px 20px 70px;
+}
+
+.hero-section h1 {
+    font-size: 46px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    text-shadow: 0 0 24px rgba(124, 109, 240, 0.4);
+}
+
+.hero-section p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+    color: #c7cbe8;
+}
+
+.hero-section button {
+    padding: 13px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    background: linear-gradient(120deg, #7c6df0, #22d3ee);
+    color: #0b0e23;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(124, 109, 240, 0.45);
+    transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.hero-section button:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   Features
+   Transparent section; cards are frosted glass panels floating
+   over the stars rather than solid blocks.
+   ============================================================ */
+
+.features-section {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 70px 40px;
+}
+
+.features-section h2,
+.how-section h2 {
+    font-size: 30px;
+    margin-bottom: 40px;
+    color: #ffffff;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.feature-card {
+    border: 1px solid rgba(124, 109, 240, 0.35);
+    border-top: 3px solid #7c6df0;
+    border-radius: 8px;
+    padding: 30px 20px;
+    min-height: 180px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 24px rgba(34, 211, 238, 0.15);
+}
+
+.feature-card h3 {
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.feature-card p {
+    line-height: 1.5;
+    color: #c7cbe8;
+}
+
+
+/* ============================================================
+   How it works
+   ============================================================ */
+
+.how-section {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 70px 40px 100px;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.steps div {
+    flex: 1;
+}
+
+.steps span {
+    font-size: 30px;
+    font-weight: bold;
+    color: #22d3ee;
+    text-shadow: 0 0 16px rgba(34, 211, 238, 0.4);
+}
+
+.steps h3 {
+    margin: 15px 0 10px;
+    color: #ffffff;
+}
+
+.steps p {
+    color: #c7cbe8;
+    line-height: 1.5;
+}
+
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width: 900px) {
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .steps {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-section {
+        padding: 110px 16px 50px;
+    }
+    .hero-section h1 {
+        font-size: 32px;
+    }
+    .hero-section p {
+        font-size: 16px;
+    }
+    .features {
+        grid-template-columns: 1fr;
+    }
+    .features-section,
+    .how-section {
+        padding: 50px 20px;
+    }
+}
